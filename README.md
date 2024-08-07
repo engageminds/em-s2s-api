@@ -26,13 +26,13 @@
 
 ### Event
 
-| Name  | Type                           | Explain                                 | Example                                                                                                   | Required |
-|-------|--------------------------------|-----------------------------------------|-----------------------------------------------------------------------------------------------------------|----------|
-| ts    | int64                          | event trigger timestamp in milliseconds | 1567479919643                                                                                             | ✔︎       |
-| cdid  | string                         | account ID                              | 1029                                                                                                      | ✖︎       |
-| eid   | string                         | EventName                               | app_start                                                                                                 | ✔︎       |
-| props | map&lt;string,any&gt;          | Event Properties                        | {"duration":30}                                                                                           | ✔︎       |
-| err   | Array of [EventErr](#eventErr) | response errors from                    | [{"prop": "EPstoryEventTest305", "type": "PropInconsistent", "value": "{\"age\":18,\"name\":\"story\"}"}] | ✖︎       |
+| Name  | Type                           | Explain                                 | Example                                                                                            | Required |
+|-------|--------------------------------|-----------------------------------------|----------------------------------------------------------------------------------------------------|----------|
+| ts    | int64                          | event trigger timestamp in milliseconds | 1567479919643                                                                                      | ✔︎       |
+| cdid  | string                         | account ID                              | 1029                                                                                               | ✖︎       |
+| eid   | string                         | EventName                               | app_start                                                                                          | ✔︎       |
+| props | map&lt;string,any&gt;          | Event Properties                        | {"duration":30}                                                                                    | ✔︎       |
+| err   | Array of [EventErr](#eventErr) | response errors from                    | [{"prop": "EventTest305", "type": "PropInconsistent", "value": "{\"age\":18,\"name\":\"story\"}"}] | ✖︎       |
 
 ### EventErr
 
@@ -40,7 +40,7 @@
 |-------|--------|----------------|-----------------|----------|
 | type  | string | error type     | UserPropInvalid | ✔︎       |
 | prop  | string | property name  | email           | ✖︎       |
-| value | any    | property value | aaaaa           | ✔︎       |
+| value | any    | property value | a@b.com         | ✔︎       |
 
 ## RequestBody JSON Example
 
@@ -48,8 +48,8 @@
 [
   {
     "ts": 1683602299467,
-    "appk": "z27yO8OluU49NCt1P0uDPWhO1FfsOBko",
-    "ssid": "28A29uDTOAcTEOs7IbHUyg",
+    "appk": "xXXxxXxXxxXxxXxxXxxX",
+    "ssid": "xXXxxXxXxxXxxXxxXxxX",
     "fit": 1683551893,
     "flt": 1683551896,
     "zo": 480,
@@ -58,7 +58,7 @@
     "uid": "889232a0-b5bc-4978-b6b9-2828910537c2",
     "gaid": "f5bb825f-a1b8-44f8-a24d-10ca1ad1abe1",
     "lang": "zh",
-    "bundle": "com.example.oaidtest2",
+    "bundle": "com.example.test",
     "make": "Xiaomi",
     "brand": "Xiaomi",
     "model": "MI 9 SE",
@@ -86,7 +86,7 @@
     "events": [
       {
         "ts": 1683602299467,
-        "cdid": "aaaabbbbccc",
+        "cdid": "xXXxxXxXxxXxx",
         "eid": "app_start",
         "props": {
           "start_reason": "intent://aaa"
@@ -94,13 +94,13 @@
       },
       {
         "ts": 1683602299467,
-        "cdid": "aaaabbbbccc",
+        "cdid": "xXXxxXxXxxXxx",
         "eid": "app_page_view",
         "props": {
-          "title": "SpinDemo_v2.5.0_beta1",
-          "name": "com.okspin.internal.demo.main.MainPagerActivity|com.okspin.internal.demo.main.MainFragment",
-          "url": "com.okspin.internal.demo.main.MainFragment",
-          "referrer": "com.okspin.internal.demo.main.MainPagerActivity"
+          "title": "EmDemo",
+          "name": "aaa",
+          "url": "a.b.MainFragment",
+          "referrer": "a.b.MainPagerActivity"
         }
       }
     ]
@@ -108,15 +108,13 @@
 ]
 ```
 
-## Response HTTP 200 OK
-
 ## ResponseBody
 
 | Name   | Type                     | Explain      | Example | Required |
 |--------|--------------------------|--------------|---------|----------|
 | events | Array of [Event](#event) | error events | ..      | ✖︎       |
 
-## ResponseBody JSON Example
+## ResponseBody Example
 
 ```json
 {
